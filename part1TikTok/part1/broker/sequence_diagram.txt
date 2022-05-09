@@ -1,0 +1,96 @@
+title This is a title
+database Disk
+control "AppNode\n192.168.2.17:4320" as AppNode
+control "AppNode\n192.168.2.17:4320" as AppNode2
+
+control "Broker1\n192.168.2.17:4321" as Broker1
+control "Broker2\n192.168.2.17:4322" as Broker2
+control "Broker3\n192.168.2.17:4323" as Broker3
+
+
+parallel on
+activate AppNode
+AppNode->Disk: load data to memory
+box over Broker1: Load Ips and Ports
+parallel off
+
+AppNode->Broker1: register()
+activate AppNode
+
+activate Broker1
+box over Broker1: create a connection
+Broker1-->AppNode: IP:PORT,IP:PORT,IP:PORT
+box over AppNode: store to RAM
+deactivate AppNode
+
+activate AppNode2
+activate AppNode2
+AppNode2->Broker1: register()
+box over Broker1: create a connection
+Broker1-->AppNode2: IP:PORT,IP:PORT,IP:PORT
+deactivate AppNode2
+
+box over AppNode: v1 = hash(192.168.2.17:4321)
+box over AppNode: v2 = hash(192.168.2.17:4322)
+box over AppNode: v3 = hash(192.168.2.17:4323)
+
+AppNode->Broker2: register()
+activate Broker2
+box over Broker2: create a connection
+Broker2-->AppNode: IP:PORT,IP:PORT,IP:PORT
+
+
+AppNode->Broker3: register()
+activate Broker3
+box over Broker3: create a connection
+Broker3-->AppNode: IP:PORT,IP:PORT,IP:PORT
+
+
+=== send all data of the channels ===
+
+loop for each channel c
+	box over AppNode: k = hash(c)        
+    box over AppNode: b = broker for that k
+        
+	loop for each video v of that channel
+    
+    	alt if b = 1
+    	AppNode->Broker1: metadata of v   
+        box over Broker1: store medata to a data structure
+        else if b = 2
+        AppNode->Broker2: metadata of v        
+        box over Broker2: store medata to a data structure
+        else if b = 3
+        AppNode->Broker3: metadata of v
+        box over Broker3: store medata to a data structure
+		end
+	end
+end
+
+=== send all data of the tags ===
+
+loop for each tag t
+	box over AppNode: k = hash(t)        
+    box over AppNode: b = broker for that k
+        
+	loop for each video v of that channel
+    
+    	alt if b = 1
+    	AppNode->Broker1: metadata of v        
+        else if b = 2
+        AppNode->Broker2: metadata of v        
+        else if b = 3
+        AppNode->Broker3: metadata of v
+		end
+	end
+end
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,68 @@
+<resources>
+    <string name="app_name">Tiktok</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="publisher_title">Publisher menu</string>
+    <string name="subscriber_title">Subscriber menu</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="publisher_options">Publisher options</string>
+    <string name="INITIAL_PUBLISHER_IP">INITIAL_PUBLISHER_IP</string>
+    <string name="INITIAL_PUBLISHER_PORT">INITIAL_PUBLISHER_PORT</string>
+    <string name="broker_options">" Broker options"</string>
+    <string name="INITIAL_BROKER_IP">INITIAL_BROKER_IP</string>
+    <string name="INITIAL_BROKER_PORT">INITIAL_BROKER_PORT</string>
+    <string name="PUBLISHER_USERNAME">Username</string>
+    <string name="PUBLISHER_USERNAME_SUMMARY">Type the username you want to use</string>
+    <string name="action_exit">Exit</string>
+    <string name="action_variables">Variables</string>
+    <string name="title_activity_variables">VariablesActivity</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
+    <string name="path">Path:</string>
+    <string name="tags_directory">Tags directory</string>
+    <string name="resource_directory">Resource directory</string>
+    <string name="downloads_directory">Downloads directory</string>
+    <string name="profile_directory">Profile directory</string>
+    <string name="current_directory">Current directory</string>
+    <string name="variables">Variables</string>
+    <string name="load">Start sharing</string>
+    <string name="channels">Channels:</string>
+    <string name="channel_videos">Videos:</string>
+    <string name="duration">Duration:</string>
+    <string name="name">Name:</string>
+    <string name="bytes">Bytes:</string>
+    <string name="frame_rate">Frame Rate:</string>
+    <string name="textview">TextView</string>
+    <string name="date">Date</string>
+    <string name="load_broker">Load data from broker</string>
+    <string name="tags">tags</string>
+    <string name="topics">topics</string>
+    <string name="save">save</string>
+    <string name="cancel">cancel</string>
+    <string name="videoname">Video name</string>
+    <string name="channel">Channel</string>
+    <string name="capture">Capture</string>
+</resources>
